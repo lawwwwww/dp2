@@ -78,6 +78,13 @@ ul {
     padding: 0;
 	list-style-type: none;
 }
+
+/*-- Two split screens --*/
+.leftside, .rightside{
+	height: 100%;
+	width: 100%;
+}
+
 /*-- //Reset-Code --*/
 .title {
     font-size: 44px;
@@ -114,6 +121,37 @@ margin: 0px;
 .search-right,.right-side-cart {
     margin-top: 9px;
 }
+
+.rightside{
+	position: fixed;
+}
+
+/*--MenuBtn--*/
+.MenuBtn{
+	table-layout: fixed;
+	width: 100%;
+}
+
+td{
+	width: 25%;
+}
+
+/*--menu_button--*/
+.menu_button {
+	position: relative;
+    background-color: #556;
+	text-align: center;
+    width: 80%;
+	padding: 40px 30px;
+    color: #fff;
+	font-size: 18px;
+	border-radius: 15px;
+}
+
+.menu_button:hover{
+	background-color:#3e8e41;
+}
+
 /*--headder info-contact --*/
 .info-top-grid,nav.navbar.navbar-expand-lg.navbar-light {
     background:rgba(255, 255, 255, 0.7);	
@@ -166,6 +204,7 @@ margin: 0px;
     border-radius: 0px;
     border: 1px solid #fff;
 }
+
 .search-right button:hover{background:#fff;
                     color:#000;}
 .navbar-light .navbar-nav .nav-link {
@@ -415,55 +454,7 @@ right: 0;
 .callbacks_nav.next {
 background-size:40px;
 }
-/*#slider3-pager a {
-display: inline-block;
-}
-#slider3-pager img {
-float: left;
-}
-#slider3-pager .rslides_here a {
-background: transparent;
-box-shadow: 0 0 0 2px #666;
-}
-#slider3-pager a {
-padding: 0;
-}*/
-/*--pager--*/
-/*.callbacks_tabs {
-list-style: none;
-position: absolute;
-padding: 0;
-bottom: 228px;
-right: 41%;
-margin: 0;
-z-index: 9;
-display: block;
-text-align: center;
-}
-.callbacks_tabs li {
-    display: inline-block;
-    margin: 0px 2px 0px;
-}
-.callbacks_tabs a {
-visibility: hidden;
-}
-.callbacks_tabs a:after {
-content: "\f111";
-font-size: 0;
-font-family: FontAwesome;
-visibility: visible;
-display: block;
-width: 21px;
-height: 21px;
-display: inline-block;
-background:#d24055;
-border: none;
-border-radius: 50%;
-}
-.callbacks_here a:after {
-background: #fff;
-border: 4px solid #d24055;
-}*/
+
 .news-agile-text p,.product-info-img p,
 .sub-agile-info-toys p,.news-agile-text p ,
 .about-products-w3layouts p,.address-gried p,
@@ -1564,7 +1555,6 @@ h3.typo-main-heading {
 }
 .agileits-toys-left {
     height: 312px;
-}
+}					
 }
 /*--//responsive--*/
-
