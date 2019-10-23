@@ -32,3 +32,4 @@ C:\Users\alexh\OneDrive\Documents\GitHub\dp2\Cafe_POS_Application\Cafe_POS_Appli
 C:\Users\alexh\OneDrive\Documents\GitHub\dp2\Cafe_POS_Application\Cafe_POS_Application\obj\Debug\netcoreapp2.2\Razor\Views\_ViewImports.cshtml.g.cs
 C:\Users\alexh\OneDrive\Documents\GitHub\dp2\Cafe_POS_Application\Cafe_POS_Application\obj\Debug\netcoreapp2.2\Razor\Views\_ViewStart.cshtml.g.cs
 C:\Users\alexh\OneDrive\Documents\GitHub\dp2\Cafe_POS_Application\Cafe_POS_Application\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_MainMenu.cshtml.g.cs
+C:\Users\alexh\OneDrive\Documents\GitHub\dp2\Cafe_POS_Application\Cafe_POS_Application\obj\Debug\netcoreapp2.2\Razor\Views\Orders\order.cshtml.g.cs
