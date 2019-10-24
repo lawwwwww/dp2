@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Cafe_POS_Application.Migrations
 {
     [DbContext(typeof(DbContextModel))]
-    [Migration("20191024192258_CafePOS")]
+    [Migration("20191024222627_CafePOS")]
     partial class CafePOS
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
