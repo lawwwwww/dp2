@@ -10,7 +10,7 @@ namespace Cafe_POS_Application.Models
     {
         [Key]
         [MaxLength(30)]
-        public int TransactionID { get; set; }
+        public Guid TransactionID { get; set; }
         public int OrderNo { get; set; }
         public string OrderDetails { get; set; }
         public int Quantity { get; set; }

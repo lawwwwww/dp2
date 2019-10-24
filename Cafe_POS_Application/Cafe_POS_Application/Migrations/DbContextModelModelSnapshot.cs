@@ -3,8 +3,8 @@ using System;
 using Cafe_POS_Application.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace Cafe_POS_Application.Migrations
 {
@@ -15,16 +15,15 @@ namespace Cafe_POS_Application.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
+                .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn)
                 .HasAnnotation("ProductVersion", "2.2.6-servicing-10079")
-                .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             modelBuilder.Entity("Cafe_POS_Application.Models.Employee", b =>
                 {
                     b.Property<int>("EmpID")
                         .ValueGeneratedOnAdd()
-                        .HasMaxLength(30)
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasMaxLength(30);
 
                     b.Property<string>("Address");
 
@@ -87,12 +86,12 @@ namespace Cafe_POS_Application.Migrations
                 {
                     b.Property<int>("OrderNo")
                         .ValueGeneratedOnAdd()
-                        .HasMaxLength(30)
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasMaxLength(30);
 
                     b.Property<DateTime>("DateTime");
 
-                    b.Property<string>("EmpName");
+                    b.Property<string>("EmpName")
+                        .IsRequired();
 
                     b.Property<string>("FoodCode");
 
@@ -109,10 +108,9 @@ namespace Cafe_POS_Application.Migrations
 
             modelBuilder.Entity("Cafe_POS_Application.Models.Payment", b =>
                 {
-                    b.Property<int>("TransactionID")
+                    b.Property<Guid>("TransactionID")
                         .ValueGeneratedOnAdd()
-                        .HasMaxLength(30)
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasMaxLength(30);
 
                     b.Property<double>("Amount");
 
@@ -133,12 +131,39 @@ namespace Cafe_POS_Application.Migrations
                     b.ToTable("Payments");
                 });
 
+            modelBuilder.Entity("Cafe_POS_Application.Models.PaymentLine", b =>
+                {
+                    b.Property<Guid>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<double>("Amount");
+
+                    b.Property<double>("Balance");
+
+                    b.Property<string>("MenuFoodCode");
+
+                    b.Property<double>("Price");
+
+                    b.Property<int>("Quantity");
+
+                    b.Property<Guid>("TransactionID");
+
+                    b.Property<Guid>("TransactionLineId");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("MenuFoodCode");
+
+                    b.HasIndex("TransactionID");
+
+                    b.ToTable("PaymentsLine");
+                });
+
             modelBuilder.Entity("Cafe_POS_Application.Models.Tables", b =>
                 {
                     b.Property<int>("TableNo")
                         .ValueGeneratedOnAdd()
-                        .HasMaxLength(30)
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasMaxLength(30);
 
                     b.Property<string>("Reservation");
 
@@ -153,10 +178,9 @@ namespace Cafe_POS_Application.Migrations
 
             modelBuilder.Entity("Cafe_POS_Application.Models.TransactionLog", b =>
                 {
-                    b.Property<int>("TransactionID")
+                    b.Property<Guid>("TransactionID")
                         .ValueGeneratedOnAdd()
-                        .HasMaxLength(30)
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasMaxLength(30);
 
                     b.Property<DateTime>("DateTime");
 
@@ -183,6 +207,18 @@ namespace Cafe_POS_Application.Migrations
                     b.HasIndex("TableNo");
 
                     b.ToTable("Transactions");
+                });
+
+            modelBuilder.Entity("Cafe_POS_Application.Models.PaymentLine", b =>
+                {
+                    b.HasOne("Cafe_POS_Application.Models.Menu", "Menu")
+                        .WithMany()
+                        .HasForeignKey("MenuFoodCode");
+
+                    b.HasOne("Cafe_POS_Application.Models.Payment", "Payment")
+                        .WithMany("PaymentLine")
+                        .HasForeignKey("TransactionID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Cafe_POS_Application.Models.TransactionLog", b =>

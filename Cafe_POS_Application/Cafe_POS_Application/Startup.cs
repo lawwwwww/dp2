@@ -11,6 +11,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Npgsql.EntityFrameworkCore.PostgreSQL;
+using Microsoft.AspNetCore.Identity;
 
 namespace Cafe_POS_Application
 {
@@ -32,9 +34,8 @@ namespace Cafe_POS_Application
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-            services.AddDbContext<DbContextModel>
-                           (options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
+            services.AddEntityFrameworkNpgsql().AddDbContext<DbContextModel>(options =>
+            options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
