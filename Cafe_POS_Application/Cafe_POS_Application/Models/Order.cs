@@ -25,7 +25,7 @@ namespace Cafe_POS_Application.Models
         public int OrderNo { get; set; }
         [Required]
         public string EmpName { get; set; }
-        public string FoodCode { get; set; }
+        public int FoodCode { get; set; }
         public string Size { get; set; }
         public int Quantity { get; set; }
         public DateTime DateTime { get; set; }

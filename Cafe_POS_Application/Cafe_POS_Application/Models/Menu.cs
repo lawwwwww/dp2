@@ -10,7 +10,7 @@ namespace Cafe_POS_Application.Models
     {
         [Key]
         [MaxLength(30)]
-        public string FoodCode { get; set; }
+        public int FoodCode { get; set; }
         public string DishName { get; set; }
         public string Drinks { get; set; }
         public string Description { get; set; }

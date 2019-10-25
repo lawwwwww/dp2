@@ -33,3 +33,8 @@ C:\Users\alexh\OneDrive\Documents\GitHub\dp2\Cafe_POS_Application\Cafe_POS_Appli
 C:\Users\alexh\OneDrive\Documents\GitHub\dp2\Cafe_POS_Application\Cafe_POS_Application\obj\Debug\netcoreapp2.2\Razor\Views\_ViewStart.cshtml.g.cs
 C:\Users\alexh\OneDrive\Documents\GitHub\dp2\Cafe_POS_Application\Cafe_POS_Application\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_MainMenu.cshtml.g.cs
 C:\Users\alexh\OneDrive\Documents\GitHub\dp2\Cafe_POS_Application\Cafe_POS_Application\obj\Debug\netcoreapp2.2\Razor\Views\Orders\order.cshtml.g.cs
+C:\Users\alexh\OneDrive\Documents\GitHub\dp2\Cafe_POS_Application\Cafe_POS_Application\obj\Debug\netcoreapp2.2\Razor\Views\Employee\Index.cshtml.g.cs
+C:\Users\alexh\OneDrive\Documents\GitHub\dp2\Cafe_POS_Application\Cafe_POS_Application\obj\Debug\netcoreapp2.2\Razor\Views\Employee\Create.cshtml.g.cs
+C:\Users\alexh\OneDrive\Documents\GitHub\dp2\Cafe_POS_Application\Cafe_POS_Application\obj\Debug\netcoreapp2.2\Razor\Views\Employee\Update.cshtml.g.cs
+C:\Users\alexh\OneDrive\Documents\GitHub\dp2\Cafe_POS_Application\Cafe_POS_Application\obj\Debug\netcoreapp2.2\Razor\Views\Menu\Index.cshtml.g.cs
+C:\Users\alexh\OneDrive\Documents\GitHub\dp2\Cafe_POS_Application\Cafe_POS_Application\obj\Debug\netcoreapp2.2\Razor\Views\Tables\Index.cshtml.g.cs

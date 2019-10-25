@@ -36,7 +36,7 @@ namespace Cafe_POS_Application
             });
            
             services.AddEntityFrameworkNpgsql().AddDbContext<DbContextModel>(options =>
-            options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
+            options.UseNpgsql(Configuration.GetConnectionString("DevConnection")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 

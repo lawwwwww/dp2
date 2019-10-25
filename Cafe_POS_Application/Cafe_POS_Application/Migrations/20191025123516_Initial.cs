@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace Cafe_POS_Application.Migrations
 {
-    public partial class CafePOS : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -32,7 +32,8 @@ namespace Cafe_POS_Application.Migrations
                 name: "Inventories",
                 columns: table => new
                 {
-                    FoodCode = table.Column<string>(maxLength: 30, nullable: false),
+                    FoodCode = table.Column<int>(maxLength: 30, nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     DishName = table.Column<string>(nullable: true),
                     Drinks = table.Column<string>(nullable: true),
                     Quantity = table.Column<int>(nullable: false)
@@ -46,7 +47,8 @@ namespace Cafe_POS_Application.Migrations
                 name: "Menus",
                 columns: table => new
                 {
-                    FoodCode = table.Column<string>(maxLength: 30, nullable: false),
+                    FoodCode = table.Column<int>(maxLength: 30, nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     DishName = table.Column<string>(nullable: true),
                     Drinks = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
@@ -64,7 +66,7 @@ namespace Cafe_POS_Application.Migrations
                     OrderNo = table.Column<int>(maxLength: 30, nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     EmpName = table.Column<string>(nullable: false),
-                    FoodCode = table.Column<string>(nullable: true),
+                    FoodCode = table.Column<int>(nullable: false),
                     Size = table.Column<string>(nullable: true),
                     Quantity = table.Column<int>(nullable: false),
                     DateTime = table.Column<DateTime>(nullable: false),
@@ -115,7 +117,7 @@ namespace Cafe_POS_Application.Migrations
                     ID = table.Column<Guid>(nullable: false),
                     TransactionLineId = table.Column<Guid>(nullable: false),
                     TransactionID = table.Column<Guid>(nullable: false),
-                    MenuFoodCode = table.Column<string>(nullable: true),
+                    MenuFoodCode = table.Column<int>(nullable: true),
                     Quantity = table.Column<int>(nullable: false),
                     Price = table.Column<double>(nullable: false),
                     Amount = table.Column<double>(nullable: false),

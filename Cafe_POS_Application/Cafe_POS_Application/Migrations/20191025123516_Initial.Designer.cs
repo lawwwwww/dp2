@@ -10,8 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Cafe_POS_Application.Migrations
 {
     [DbContext(typeof(DbContextModel))]
-    [Migration("20191024230036_CafePOS")]
-    partial class CafePOS
+    [Migration("20191025123516_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -50,7 +50,7 @@ namespace Cafe_POS_Application.Migrations
 
             modelBuilder.Entity("Cafe_POS_Application.Models.Inventory", b =>
                 {
-                    b.Property<string>("FoodCode")
+                    b.Property<int>("FoodCode")
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(30);
 
@@ -67,7 +67,7 @@ namespace Cafe_POS_Application.Migrations
 
             modelBuilder.Entity("Cafe_POS_Application.Models.Menu", b =>
                 {
-                    b.Property<string>("FoodCode")
+                    b.Property<int>("FoodCode")
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(30);
 
@@ -95,7 +95,7 @@ namespace Cafe_POS_Application.Migrations
                     b.Property<string>("EmpName")
                         .IsRequired();
 
-                    b.Property<string>("FoodCode");
+                    b.Property<int>("FoodCode");
 
                     b.Property<int>("Quantity");
 
@@ -142,7 +142,7 @@ namespace Cafe_POS_Application.Migrations
 
                     b.Property<double>("Balance");
 
-                    b.Property<string>("MenuFoodCode");
+                    b.Property<int?>("MenuFoodCode");
 
                     b.Property<double>("Price");
 
