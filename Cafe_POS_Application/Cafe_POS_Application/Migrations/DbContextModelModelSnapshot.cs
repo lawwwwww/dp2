@@ -43,7 +43,7 @@ namespace Cafe_POS_Application.Migrations
 
                     b.HasKey("EmpID");
 
-                    b.ToTable("Employees");
+                    b.ToTable("Employee");
                 });
 
             modelBuilder.Entity("Cafe_POS_Application.Models.Inventory", b =>

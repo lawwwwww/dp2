@@ -9,7 +9,7 @@ namespace Cafe_POS_Application.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Employees",
+                name: "Employee",
                 columns: table => new
                 {
                     EmpID = table.Column<int>(maxLength: 30, nullable: false)
@@ -25,7 +25,7 @@ namespace Cafe_POS_Application.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Employees", x => x.EmpID);
+                    table.PrimaryKey("PK_Employee", x => x.EmpID);
                 });
 
             migrationBuilder.CreateTable(
@@ -157,9 +157,9 @@ namespace Cafe_POS_Application.Migrations
                 {
                     table.PrimaryKey("PK_Transactions", x => x.TransactionID);
                     table.ForeignKey(
-                        name: "FK_Transactions_Employees_EmployeeEmpID",
+                        name: "FK_Transactions_Employee_EmployeeEmpID",
                         column: x => x.EmployeeEmpID,
-                        principalTable: "Employees",
+                        principalTable: "Employee",
                         principalColumn: "EmpID",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
@@ -212,7 +212,7 @@ namespace Cafe_POS_Application.Migrations
                 name: "Payments");
 
             migrationBuilder.DropTable(
-                name: "Employees");
+                name: "Employee");
 
             migrationBuilder.DropTable(
                 name: "Table");

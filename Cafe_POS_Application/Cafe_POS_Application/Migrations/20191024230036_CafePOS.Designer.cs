@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Cafe_POS_Application.Migrations
 {
     [DbContext(typeof(DbContextModel))]
-    [Migration("20191024222627_CafePOS")]
+    [Migration("20191024230036_CafePOS")]
     partial class CafePOS
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -45,7 +45,7 @@ namespace Cafe_POS_Application.Migrations
 
                     b.HasKey("EmpID");
 
-                    b.ToTable("Employees");
+                    b.ToTable("Employee");
                 });
 
             modelBuilder.Entity("Cafe_POS_Application.Models.Inventory", b =>

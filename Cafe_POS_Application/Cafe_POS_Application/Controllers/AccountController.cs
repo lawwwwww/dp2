@@ -10,11 +10,7 @@ namespace Cafe_POS_Application.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly DbContextModel _context;
-        public AccountController(DbContextModel context)
-        {
-            _context = context;
-        }
+        DbContextModel _context = new DbContextModel();
 
         public IActionResult Login()
         {
@@ -22,7 +18,7 @@ namespace Cafe_POS_Application.Controllers
         }
         public ActionResult Validate(Employee employee)
         {
-            var _employee = _context.Employees.Where(s => s.Email == employee.Email);
+            var _employee = _context.Employee.Where(s => s.Email == employee.Email);
             if (_employee.Any())
             {
                 if (_employee.Where(s => s.Password == employee.Password).Any())

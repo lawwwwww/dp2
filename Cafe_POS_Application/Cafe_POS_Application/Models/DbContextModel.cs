@@ -15,7 +15,7 @@ namespace Cafe_POS_Application.Models
         public DbContextModel() { }
 
         public DbSet<Tables> Table { get; set; }
-        public DbSet<Employee> Employees { get; set; }
+        public DbSet<Employee> Employee { get; set; }
         public DbSet<Menu> Menus { get; set; }
         public DbSet<Inventory> Inventories { get; set; }
         public DbSet<Order> Orders { get; set; }
