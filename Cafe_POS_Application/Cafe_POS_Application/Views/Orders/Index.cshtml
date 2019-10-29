@@ -1,0 +1,150 @@
+﻿@model IEnumerable<Cafe_POS_Application.Models.Menu>
+
+<!-- DataTables -->
+<!-- page script -->
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <title>Cafe</title>
+    <!--meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Cafe" />
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <link rel="stylesheet" type="text/css" href="~/css/shop.css" media="all">
+
+    <link rel="stylesheet" type="text/css" href="~/css/order.css" media="all">
+    <link rel="stylesheet" type="text/css" href="~/css/test.css" media="all">
+</head>
+<body>
+
+    <section class="content-header">
+        <h1>Menu</h1>
+        <ol class="breadcrumb">
+            <li><a href="/home"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Menu</li>
+        </ol>
+
+    </section> 
+   <br/>
+        <label class="control-label" style="margin-left:10px">Table number:</label>
+        <input class="form-control" type="text" placeholder="Table number">
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box">
+                        <div class="box-header">
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            <table id="datatable" class="table table-striped table-bordered nowrap" style="width:70%">
+                                <thead>
+                                    <tr>
+                                        <th>FoodCode</th>
+                                        <th>DishName</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>@Html.DisplayFor(modelItem => item.FoodCode)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.DishName)</td>
+                                            <td>
+                                                <form action="#" method="post">
+                                                    <input type="hidden" name="cmd" value="_cart">
+                                                    <input type="hidden" name="add" value="1">
+                                                    <input type="hidden" name="toys_item" value="@item.DishName">
+                                                    <input type="hidden" name="amount" value="@item.Price">
+                                                    <button type="submit" onclick="Addcart(@item.FoodCode)">Add to cart</button>
+                                                </form>
+                                            </td>
+
+                                        </tr>
+                                    }
+                            </table>
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </section>
+        </div>
+</body>
+</html>
+<!-- page script -->
+
+<script src="~/js/jquery-2.2.3.min.js"></script>
+
+<script>
+    $('.value-plus').on('click', function () {
+        var divUpd = $(this).parent().find('.value'),
+            newVal = parseInt(divUpd.text(), 10) + 1;
+        divUpd.text(newVal);
+    });
+
+    $('.value-minus').on('click', function () {
+        var divUpd = $(this).parent().find('.value'),
+            newVal = parseInt(divUpd.text(), 10) - 1;
+        if (newVal >= 1) divUpd.text(newVal);
+    });
+</script>
+
+<script src="~/js/minicart.js"></script>
+<script>
+    toys.render();
+
+    toys.cart.on('toys_checkout', function (evt) {
+        var items, len, i;
+
+        if (this.subtotal() > 0) {
+            items = this.items();
+
+            for (i = 0, len = items.length; i < len; i++) { }
+        }
+    });
+</script>
+<!-- //cart-js -->
+<!-- price range (top products) -->
+<script src="~/js/jquery-ui.js"></script>
+<script>
+    //<![CDATA[
+    $(window).load(function () {
+        $("#slider-range").slider({
+            range: true,
+            min: 0,
+            max: 9000,
+            values: [50, 6000],
+            slide: function (event, ui) {
+                $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
+            }
+        });
+        $("#amount").val("$" + $("#slider-range").slider("values", 0) + " - $" + $("#slider-range").slider("values", 1));
+
+    }); //]]>
+</script>
+
+<script>
+    $(function () {
+        $('#datatable').DataTable();
+    });
+
+    function Addcart(foodcode)
+    {
+
+    }
+</script>
